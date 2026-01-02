@@ -5,17 +5,21 @@
 //defn
 
 int outpath () {
-    std::unordered_map<std::string, int> OutMenu;
+    std::unordered_map<std::string, double> outMenu;
 
-    OutMenu["Cheezburger"] = 5;
-    OutMenu["Burger"] = 5;
-    OutMenu["Fries"] = 2;
-    OutMenu["Soda"] = 2;
-    OutMenu["Smoothie"] = 3;
-    OutMenu["Hot Chocolate"] = 2;
+    outMenu["Cheezburger"] = 5;
+    outMenu["Burger"] = 5;
+    outMenu["Protein Burger"] = 5;
+    outMenu["Fries"] = 2;
+    outMenu["Soda"] = 2;
+    outMenu["Vanilla Shake"] = 3;
+    outMenu["Chocolate Shake"] = 3;
+    outMenu["Strawberry Shake"] = 3;
+    outMenu["Hot Chocolate"] = 2;
+    outMenu["Animal Fries"] = 5;
 
     std::cout << "This is our menu:\n";
-    for (auto i : OutMenu) {
+    for (auto i : outMenu) {
         std::cout << i.first << " $" << i.second << std::endl;
     }
     return 0;

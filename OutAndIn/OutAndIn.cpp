@@ -4,7 +4,7 @@
 #include <unordered_map>
 //defn
 
-int outpath () {
+void outPath () {
     std::unordered_map<std::string, double> outMenu;
 
     outMenu["Cheezburger"] = 5;
@@ -22,5 +22,5 @@ int outpath () {
     for (auto i : outMenu) {
         std::cout << i.first << " $" << i.second << std::endl;
     }
-    return 0;
+
 }

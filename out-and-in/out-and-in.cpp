@@ -14,9 +14,9 @@ int main () {
     OutMenu["Smoothie"] = 3;
     OutMenu["Hot Chocolate"] = 2;
 
-    std::cout << "This is our menu:";
+    std::cout << "This is our menu:\n";
     for (auto i : OutMenu) {
-        std::cout << i.first << " " << i.second << std::endl;
-        return 0;
+        std::cout << i.first << " $" << i.second << std::endl;
     }
+    return 0;
 }

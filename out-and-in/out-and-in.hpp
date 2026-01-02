@@ -1,5 +1,5 @@
-#ifndef OUT-AND-IN_HPP
-#define OUT-AND-IN_HPP
+#ifndef OUTANDIN_HPP
+#define OUTANDIN_HPP
 
 #include <iostream>
 
@@ -9,6 +9,6 @@
 class outandin {
     public:
 
-}
+};
 
 #endif

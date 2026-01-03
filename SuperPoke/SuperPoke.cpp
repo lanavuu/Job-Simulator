@@ -7,11 +7,12 @@
 #include <unordered_map>
 
 pokeBowl::pokeBowl() { // pokebowl is a member of the pokebowl class, compile knows where all the private members come from
+    size_ = "";
     base_ = "";
-    topping_[5] = "";
-    protein_ = "";
-    sauce_ = "";
-    top_off_ = "";
+    topping_; //empty vectors
+    proteins_;
+    sauce_;
+    top_off_;
 }
 
 void pokeBowl::pickSize() { //setting size_ to random size
@@ -26,12 +27,20 @@ void pokeBowl::pickBase() {
 }
 
 void pokeBowl::pickTopping() {
+    int toppingMax;
     std::vector<std::string> toppings = {"crabmeat", "spicy crabmeat", "seaweed salad", "cucumber", "edamame", "corn",
     "onions", "mango", "pickled radish", "avacado"};
     //how do i store up to five toppings? -> turn into a list
+    // randomly choose max amount of topping
+    toppingMax = rand() % 5; // randomly choose amount of toppings 1-5
+    // store random toppings into topping_ (toppingMax) amount of times
+    for (int index = 0; index < toppingMax; index++) {
+        topping_[index] = toppings[rand() % 10]; 
+        //for current index at topping
+        // set it equal to toppings at this random index (random topping)
+        // continue until index is less than toppingMax
+    }
     
-    topping_[5] = toppings[rand() % 10];
-    //only can select one of each topping, duplicates will cost extra depending on the topping
 
 }
 
@@ -55,12 +64,11 @@ void pokeBowl::pickProteins() {
     // randomly choose proteins
     // if random reaches max protein, stop
     // store random proteins in a list
-    for (int i = 0; i < proteinMax; i++) {
-        proteins_[i] = proteins[rand() % 8]; // i randomly selects from proteins vector and keeps storing proteins 
+    for (int index = 0; index < proteinMax; index++) {
+        proteins_[index] = proteins[rand() % 8]; // i randomly selects from proteins vector and keeps storing proteins 
                                                     // until it reaches the max proteins
     } // index in protein i randomly stores from protein vector while for loop conditrion tru
 
-   
 }
 
 void pokeBowl::pickSauce() {

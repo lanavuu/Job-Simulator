@@ -1,4 +1,5 @@
 #include "SuperPoke.hpp"
+#include "../money/money.hpp"
 #include <iostream>
 #include <vector>
 #include <cstdlib>

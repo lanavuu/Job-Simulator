@@ -39,7 +39,9 @@
     - Depending on happy points = tips
 
 
+
 ## Future
+- Focus on cashiering system first before moving onto bigger ideas
 - Track earnings
 - Manager position
     - have all store funds
@@ -48,3 +50,4 @@
 - Kitchen postion
     - work on the food
 - Premium customers
+- Choices: quit job, clock out, clock in, go home, shop

@@ -1,4 +1,5 @@
 #include "RickRonalds.hpp"
+#include "../Register/Register.hpp"
 #include <iostream>
 #include <vector>
 #include <unordered_map>

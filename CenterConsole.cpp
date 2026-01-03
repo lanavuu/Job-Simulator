@@ -1,10 +1,12 @@
-#include "OutAndIn/OutAndIn.hpp"
-#include "RickRonalds/RickRonalds.hpp"
-#include "SuperPoke/SuperPoke.hpp"
+#include "Stores/OutAndIn.hpp"
+#include "Stores/RickRonalds.hpp"
+#include "Stores/SuperPoke.hpp"
 #include <iostream>
-
+#include <cstdlib>
+#include <ctime>
 
 int main() {
+    srand(time(nullptr)); //rand seed ONCE in main
 
     std::cout << "Hey kid. You've got no money, no talent, no potential, and your parents hate you.\n";
     std::cout << "Imma take you in, but if you don't get no job then you're out of here.\n";

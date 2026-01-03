@@ -119,7 +119,14 @@ std::string pokeBowl::printOrder() {
     proteins + " with sauces " + sauces + ". To top it off, you chose " + topOffs + ".\n"); // convert vector to string, print
 }
 
-int pokeBowl::calculateOrder() {
+    void setOrder(int size, double proteins, double toppings, double sauces) {}
+
+    double pokeBowl::calculateOrder(double size, double proteins, double toppings, double sauces) {
+    // read the receipt/order
+    // calculate it by inputting size and any extras
+    // if size 
+    this->size_ = size;
+
 
 }
     
@@ -130,17 +137,6 @@ int pokeBowl::calculateOrder() {
 
 
 void pokePath() { //PATHWAY
-    std::unordered_map<std::string, double> pokeMenu;
 
-    pokeMenu["1. Small (2 scoop)"] = 14;
-    pokeMenu["2. Medium (3 scoop)"] = 17;
-    pokeMenu["3. Large (5 scoop)"] = 22;
-    
-    std::cout << "Pick your size: ";
-    for (auto i : pokeMenu) {
-        std::cout << i.first << " $" << i.second; // choosing poke size
-    }
-
-
-
+    std::cout << "Welcome to Super Poke. Go start working";
 }

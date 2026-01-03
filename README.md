@@ -1,4 +1,4 @@
-# fast-food-system
+# Job Simulator
 hi welcome to chilis
 
 experiment game based off of roblox game simulators
@@ -10,4 +10,6 @@ choose a place, then start cashiering. manager role will be implemented in futur
 enter right amount of money for change, answer any questions about the menu.
 
 questions can vary from item comparisons in different stores, prices, etc
+
+README will be updated with more detail, game is still in progress and ideas have not been finalized.
 

@@ -1,6 +1,7 @@
 #ifndef SUPERPOKE_HPP
 #define SUPERPOKE_HPP
 
+
 #include <string>
 #include <vector>
 #include <unordered_map>
@@ -23,7 +24,7 @@ class pokeBowl { //making a bowl, this is not the restaurant
     // base: white rice, brown rice, spring mix
     // topping: crabmeat, spicy crabmeat, seaweed salad, cucumber, edamame, corn, onions, mango, pickled radish, avacado
     // protein: salmon, spicy salmon, tuna, spicy tuna, octopus, shrimp, scallop, yellowtail
-    // sauce: soy sauce, ponzu, spicy mayo, eel sauce, spicy ponzu
+    // sauce: soy sauce, super sauce, ponzu, spicy mayo, eel sauce, spicy ponzu
     // top off: fish eggs, cilantro, green onions, pineapple, wasabi, ginger, furikake, sesame seeds, fried shallots
 
 
@@ -36,17 +37,18 @@ class pokeBowl { //making a bowl, this is not the restaurant
     void pickProteins();
     void pickSauce();
     void topItOff();
-    void printOrder();
+    std::string printOrder();
     int calculateOrder();
 
 
     private: // these come from RNG, DONT PUT THEM IN THE CONSTRUCTOR.
-    std::string size_;
+    std::string size_; 
     std::string base_;
-    std::string protein_;
-    std::string topping_;
-    std::string top_off_;
-    std::string sauce_;
+    std::vector<std::string> proteins_; //sizze can change buckaroo
+    std::vector<std::string> topping_;
+    std::vector<std::string> top_off_;
+    std::vector<std::string> sauce_;
+    std::unordered_map<std::string, double> pokeMenu;
 };
 
 #endif

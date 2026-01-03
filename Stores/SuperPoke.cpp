@@ -118,10 +118,16 @@ std::string pokeBowl::printOrder() {
     return ("You ordered a " + size_ + " bowl with " + base_ + ". For your toppings you chose " + toppings + ". For proteins you chose " +
     proteins + " with sauces " + sauces + ". To top it off, you chose " + topOffs + ".\n"); // convert vector to string, print
 }
+    //randomly select if customer wants extra protein, toppings, or sauces. 
+    // scrap for now, work on simplier methods first.
+    /*
+    bool extras() {
+
+    }
 
     void setOrder(int size, double proteins, double toppings, double sauces) {}
-
-    double pokeBowl::calculateOrder(double size, double proteins, double toppings, double sauces) {
+    */
+    double pokeBowl::calculateOrder(double size) {
     // read the receipt/order
     // calculate it by inputting size and any extras
     // if size 

@@ -36,7 +36,32 @@ void pokeBowl::pickTopping() {
 }
 
 void pokeBowl::pickProteins() {
+    int proteinMax;
+    std::vector<std::string> proteins = {"salmon", "spicy salmon", "tuna", "spicy tuna", "octopus", "shrimp",
+    "scallop", "yellowtail"};
+    //if small
+    // max 2
+    //if medium
+    // max 3
+    //if large
+    // max 5
+    if (size_ == "Small") {
+        int proteinMax = 2;
+    } else if (size_ == "Medium") {
+        int proteinMax = 3;
+    } else if (size_ == "Large") {
+        int proteinMax = 5;
+    }
+    // randomly choose proteins
+    // if random reaches max protein, stop
+    // store random proteins in a list
+    for (int i = 0; i <= proteinMax; i++) {
+        proteins_[proteinMax] = proteins[rand() % 8]; // i randomly selects from proteins vector and keeps storing proteins 
+                                                    // until it reaches the max proteins
 
+    }
+
+   
 }
 
 void pokeBowl::pickSauce() {

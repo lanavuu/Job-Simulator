@@ -153,6 +153,17 @@ std::string pokeBowl::printOrder() {
 
 
 void pokePath() { //PATHWAY
+    std::string shift;
+    std::cout << "Welcome to Super Poke. Clock in? : ";
+    std::cout << "Y or N";
+    std::cin >> shift;
 
-    std::cout << "Welcome to Super Poke. Go start working";
+    // while clock in, run cashier simulator and fnctions
+    // if clock out, break out of loop then ask "go home?" quit job option
+
+
+    while (shift == "yes" || "Yes" || "Y" || "y") {
+        
+
+    }
 }

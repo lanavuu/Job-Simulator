@@ -53,3 +53,4 @@
     - work on the food
 - Premium customers
 - Choices: quit job, clock out, clock in, go home, shop
+- different customer dialogues

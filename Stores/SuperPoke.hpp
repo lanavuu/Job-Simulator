@@ -28,6 +28,11 @@ class pokeBowl { //making a bowl, this is not the restaurant
     // top off: fish eggs, cilantro, green onions, pineapple, wasabi, ginger, furikake, sesame seeds, fried shallots
 
 
+    // NO MONEY, PAYMENT, OR CHANGE
+    // NO MONEY, PAYMENT, OR CHANGE
+        
+    // NO MONEY, PAYMENT, OR CHANGE
+    // NO MONEY, PAYMENT, OR CHANGE
 
     pokeBowl(); // completely new bowl, empty not chosen
 
@@ -40,6 +45,7 @@ class pokeBowl { //making a bowl, this is not the restaurant
     std::string printOrder();
     std::string calculateOrder();
     void setSize(std::string& size);
+    void buildBowl(); // helper function
     /*
     void setOrder(int size, double proteins, double toppings, double sauces);
     bool extras(); 

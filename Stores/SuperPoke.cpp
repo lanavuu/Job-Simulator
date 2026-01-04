@@ -48,6 +48,7 @@ void pokeBowl::pickTopping() {
 
 }
 
+
 void pokeBowl::pickProteins() {
     int proteinMax;
     std::vector<std::string> proteins = {"salmon", "spicy salmon", "tuna", "spicy tuna", "octopus", "shrimp",
@@ -84,6 +85,17 @@ void pokeBowl::pickSauce() { // up to 3 sauzes max
         sauce_.push_back(sauces[rand() % 6]); //fixed
     }
 
+}
+
+
+void pokeBowl::topItOff() { //forgot top offs
+    int topOffMax;
+    std::vector<std::string> topOffs = {"fish eggs", "cilantro", "green onions", "pineapple", "wasabi", "ginger", "furikake", "sesame seeds", "fried shallots"};
+    
+    topOffMax = 1 + rand() % 9;
+    for (int index = 0; index < topOffMax; index++) {
+        top_off_.push_back(topOffs[rand() % 9]);
+    }
 }
 
 std::string pokeBowl::printOrder() {
@@ -147,29 +159,42 @@ std::string pokeBowl::printOrder() {
 
 
 }
+
+    void pokeBowl::buildBowl() { //random bowl
+        pickSize();
+        pickBase();
+        pickTopping();
+        pickProteins();
+        pickSauce();
+        topItOff();
+    }
     
-    // NO MONEY, PAYMENT, OR CHANGE
-    // NO MONEY, PAYMENT, OR CHANGE
-        
-    // NO MONEY, PAYMENT, OR CHANGE
-    // NO MONEY, PAYMENT, OR CHANGE
-
-
-
 
 
 void pokePath() { //PATHWAY
-    std::string shift;
-    std::cout << "Welcome to Super Poke. Clock in? : ";
-    std::cout << "Y or N";
-    std::cin >> shift;
+
+    char choice;
+    bool shift = true;
 
     // while clock in, run cashier simulator and fnctions
     // if clock out, break out of loop then ask "go home?" quit job option
 
+    //create new bowl for each new customer
 
-    while (shift == "yes" || "Yes" || "Y" || "y") {
-        
+    while (shift) {
+        pokeBowl bowl;
+        bowl.buildBowl();
+        bowl.printOrder();
+        bowl.calculateOrder();
 
+        std::cout << "Clock out?";
+        std::cin >> choice;
+        if (choice = "Y" || "y") {
+            shift = false;
+        } else {
+            shift = true;
+        }
     }
+
+
 }

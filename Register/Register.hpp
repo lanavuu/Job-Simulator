@@ -11,7 +11,11 @@
 // how to check if change is correct?
 // what does calculating the order price do for this file?
 
-// 
+// COIN VALUES
+// CASH VS CARD
+// CHANGE CALCULATION
+// VALIDATING INPUT
+// NO ORDERS
 class registerSys{
     public:
     registerSys();
@@ -25,6 +29,7 @@ class registerSys{
     const int nickel_;
     const int dime_;
     const int quarter_;
+    
 
 };
 #endif

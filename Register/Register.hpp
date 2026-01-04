@@ -16,11 +16,20 @@
 // CHANGE CALCULATION
 // VALIDATING INPUT
 // NO ORDERS
+enum class paymentType { //paymenttype only accepts values either cash or card
+    Cash,
+    Card
+};
+
 class registerSys{
     public:
     registerSys();
 
     double change(double order);
+    void setPayment(paymentType type);
+    paymentType getPaymentType() const;
+   
+
 
 
 
@@ -29,7 +38,8 @@ class registerSys{
     const int nickel_;
     const int dime_;
     const int quarter_;
-    
+    paymentType paymentType_; // custom type paymentType, only holding values from enum class paymentType
+
 
 };
 #endif

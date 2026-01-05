@@ -11,10 +11,7 @@
 pokeBowl::pokeBowl() { // pokebowl is a member of the pokebowl class, compile knows where all the private members come from
     size_ = "";
     base_ = "no base";
-    topping_; //empty vectors
-    proteins_;
-    sauce_;
-    top_off_;
+
 }
 
 void pokeBowl::pickSize() { //setting size_ to random size
@@ -38,7 +35,7 @@ void pokeBowl::pickTopping() {
     toppingMax = 1 + rand() % 5; // randomly choose amount of toppings 1-5
     // store random toppings into topping_ (toppingMax) amount of times
 
-    for (int index = 0; index < toppingMax; index++) {
+    for (size_t index = 0; index < toppingMax; index++) {
         topping_.push_back(toppings[rand() % 10]); //I FORGOT THIS DOES NOT HAVE ANYTHING IN IT
         //for current index at topping
         // push random item onto the vector
@@ -69,7 +66,7 @@ void pokeBowl::pickProteins() {
     // randomly choose proteins
     // if random reaches max protein, stop
     // store random proteins in a list
-    for (int index = 0; index < proteinMax; index++) {
+    for (size_t index = 0; index < proteinMax; index++) {
         proteins_.push_back(proteins[rand() % 8]);// i randomly selects from proteins vector and keeps storing proteins 
                                                     // until it reaches the max proteins
     } // fixed
@@ -81,7 +78,7 @@ void pokeBowl::pickSauce() { // up to 3 sauzes max
     std::vector<std::string> sauces {"soy sauce", "super sauce", "ponzu", "spicy mayo", "eel sauce", "spizy ponzu"};
 
     sauceMax = rand() % 3;
-    for (int index = 0; index < sauceMax; index++) {
+    for (size_t index = 0; index < sauceMax; index++) {
         sauce_.push_back(sauces[rand() % 6]); //fixed
     }
 
@@ -93,7 +90,7 @@ void pokeBowl::topItOff() { //forgot top offs
     std::vector<std::string> topOffs = {"fish eggs", "cilantro", "green onions", "pineapple", "wasabi", "ginger", "furikake", "sesame seeds", "fried shallots"};
     
     topOffMax = 1 + rand() % 9;
-    for (int index = 0; index < topOffMax; index++) {
+    for (size_t index = 0; index < topOffMax; index++) {
         top_off_.push_back(topOffs[rand() % 9]);
     }
 }
@@ -155,7 +152,7 @@ std::string pokeBowl::printOrder() {
         return "Okay you ordered a medium, that will be $17 please";
     } else if (size_ == "Large") {
         return "Okay you ordered a large, that will be $20 please";
-    }
+    } return "Invalid order";
 
 
 }

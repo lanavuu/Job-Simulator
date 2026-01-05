@@ -172,7 +172,7 @@ void pokePath() { //PATHWAY
 
     registerSys POS;
 
-    char choice;
+    char choice = 'n';
     bool shift = true;
 
     // while clock in, run cashier simulator and fnctions
@@ -188,11 +188,10 @@ void pokePath() { //PATHWAY
 
         std::cout << "Clock out?";
         std::cin >> choice;
-        if (choice = "Y" || "y") {
+
+        if (choice == 'Y' || choice == 'y') {
             shift = false;
-        } else {
-            shift = true;
-        }
+        } 
     }
 
 

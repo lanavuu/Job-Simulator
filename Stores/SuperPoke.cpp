@@ -183,8 +183,19 @@ void pokePath() { //PATHWAY
     while (shift) {
         pokeBowl bowl;
         bowl.buildBowl();
-        bowl.printOrder();
+        std::cout << bowl.printOrder();
         bowl.calculateOrder();
+
+        paymentType type;
+        char payInput;
+
+        std::cout << "Cash (c) or Card (D)?: ";
+        std::cin >> payInput;
+
+        if (payInput == 'C' || payInput == 'c') {
+            type == paymentType::Cash;
+        }
+
 
         std::cout << "Clock out?";
         std::cin >> choice;

@@ -46,6 +46,7 @@ class pokeBowl { //making a bowl, this is not the restaurant
     double calculateOrder();
     void setSize(std::string& size);
     void buildBowl(); // helper function
+    double customerChange();
     /*
     void setOrder(int size, double proteins, double toppings, double sauces);
     bool extras(); 
@@ -58,8 +59,9 @@ class pokeBowl { //making a bowl, this is not the restaurant
     std::vector<std::string> topping_;
     std::vector<std::string> top_off_;
     std::vector<std::string> sauce_;
-    int price_;
-    paymentType customerPayment_;
+    double price_;
+    
+ 
 
 
     /*

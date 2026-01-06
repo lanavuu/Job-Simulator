@@ -25,7 +25,7 @@ class registerSys{
     public:
     registerSys();
 
-    double change(double order);
+    double change(double order, double total);
     void setPayment(paymentType type);
     paymentType getPaymentType() const;
    

@@ -174,6 +174,12 @@ std::string pokeBowl::printOrder() {
         pickSauce();
         topItOff();
     }
+
+    double pokeBowl::customerChange() {
+        double change;
+        change = price_ + rand() % 10;
+        return change;
+    }
     
 
 
@@ -190,12 +196,16 @@ void pokePath() { //PATHWAY
     //create new bowl for each new customer
 
     while (shift) {
+        std::string paymentString;
+        std::string changeString;
+        paymentType type;
+        double enterChange;
+
         pokeBowl bowl; //create a bowl object
         bowl.buildBowl(); // randomly build new bowl
         std::cout << bowl.printOrder(); // print the order
-        double total = bowl.calculateOrder(); // calculate the price of the bowl
-        std::string paymentString;
-        paymentType type;
+        double order = bowl.calculateOrder(); // calculate the price of the bowl
+
         int random = rand() % 100;
         if (random < 80) {
             type = paymentType::Cash;
@@ -206,11 +216,13 @@ void pokePath() { //PATHWAY
         }
 
         POS.setPayment(type);
+        changeString = bowl.customerChange();
 
-        std::cout << "Customer: I am paying with " << paymentString << ".\n"; // got the payment
+        std::cout << "Customer: I am paying with " << paymentString << "Here is my money: " << changeString << ".\n"; // got the payment
 
-        std::cout << "Enter your change: ";
-        
+        std::cout << "REGISTER: You owe: " << POS.change(bowl.customerChange(), order) << "\n";
+        std::cout << "REGISTER: Enter the right amount of change to give back: \n";
+        std::cin >> enterChange;
 
         //rng payment function
    

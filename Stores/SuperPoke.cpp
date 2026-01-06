@@ -207,9 +207,9 @@ void pokePath() { //PATHWAY
 
         POS.setPayment(type);
 
-        std::cout << "Customer: I am paying with " << paymentString << ".\n";
+        std::cout << "Customer: I am paying with " << paymentString << ".\n"; // got the payment
 
-        std::cout << "You: Cash (c) or Card (D)?: "; // ask for payment type
+        std::cout << "Enter your change: ";
         
 
         //rng payment function

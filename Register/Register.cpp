@@ -20,5 +20,9 @@ void registerSys::setPayment(paymentType type) {
 
 double registerSys::change(double order) {
 
+    if (paymentType_ == paymentType::Cash) {
+        return "You owe: " + ()
+    }
+
 }
 

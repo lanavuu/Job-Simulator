@@ -141,18 +141,27 @@ std::string pokeBowl::printOrder() {
 
     void setOrder(int size, double proteins, double toppings, double sauces) {}
     */
-    std::string pokeBowl::calculateOrder() {
-      
+    double pokeBowl::calculateOrder() {
     // read the receipt/order
     // calculate it by inputting size and any extras
     // if statements, cant grasp my idea, trying this first
-    if (size_ == "Small") {
-        return "Okay you ordered a small, that will be $14 please";
-    } else if (size_ == "Medium") {
-        return "Okay you ordered a medium, that will be $17 please";
-    } else if (size_ == "Large") {
-        return "Okay you ordered a large, that will be $20 please";
-    } return "Invalid order";
+
+        if (size_ == "Small") {
+            price_ = 14;
+            std::cout << "Okay you ordered a small, that will be $14 please";
+            return price_;
+        } else if (size_ == "Medium") {
+            price_ = 17;
+            std::cout << "Okay you ordered a small, that will be $14 please";
+            return price_;
+        } else if (size_ == "Large") {
+            price_ = 20;
+            std::cout << "Okay you ordered a small, that will be $14 please";
+            return price_;
+        } else {
+        std::cout << "Invalid order";
+        }
+       
 
 
 }
@@ -181,21 +190,27 @@ void pokePath() { //PATHWAY
     //create new bowl for each new customer
 
     while (shift) {
-        pokeBowl bowl;
-        bowl.buildBowl();
-        std::cout << bowl.printOrder();
-        bowl.calculateOrder();
+        pokeBowl bowl; //create a bowl object
+        bowl.buildBowl(); // randomly build new bowl
+        std::cout << bowl.printOrder(); // print the order
+        double total = bowl.calculateOrder(); // calculate the price of the bowl
 
         paymentType type;
-        char payInput;
-
-        std::cout << "Cash (c) or Card (D)?: ";
-        std::cin >> payInput;
-
-        if (payInput == 'C' || payInput == 'c') {
-            type == paymentType::Cash;
+        int random = rand() % 100;
+        if (random < 80) {
+            type = paymentType::Cash;
+        } else {
+            type = paymentType::Card;
         }
 
+        std::cout << "You: Cash (c) or Card (D)?: "; // ask for payment type
+        
+
+        //rng payment function
+   
+        // create customer pay with cash or card
+        // if cash, have customer pay with extra = you need to calculate the change
+        // if card, enter amount in terminal
 
         std::cout << "Clock out?";
         std::cin >> choice;

@@ -194,14 +194,20 @@ void pokePath() { //PATHWAY
         bowl.buildBowl(); // randomly build new bowl
         std::cout << bowl.printOrder(); // print the order
         double total = bowl.calculateOrder(); // calculate the price of the bowl
-
+        std::string paymentString;
         paymentType type;
         int random = rand() % 100;
         if (random < 80) {
             type = paymentType::Cash;
+            paymentString = "Cash";
         } else {
             type = paymentType::Card;
+            paymentString = "Card";
         }
+
+        POS.setPayment(type);
+
+        std::cout << "Customer: I am paying with " << paymentString << ".\n";
 
         std::cout << "You: Cash (c) or Card (D)?: "; // ask for payment type
         

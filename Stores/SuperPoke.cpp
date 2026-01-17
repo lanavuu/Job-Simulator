@@ -222,30 +222,20 @@ void pokePath() { //PATHWAY
 
         std::cout << "Customer: I am paying with " << paymentString << "\nHere is my money: $" 
         << std::fixed << std::setprecision(2) << changeAmount << ".\n"; // got the payment
-
         std::cout << "REGISTER: You owe: " << POS.change(bowl.customerChange(), order) << "\n"; //register function
-
         std::cout << "REGISTER: Enter the right amount of change to give back: \n";
         std::cin >> enterChange;
 
 
-
        //if change is correct, proceed, if not repeat until correct for now
 
-       if (POS.compareChange(change, enterChange)) {
-        std::cout << "Transaction successful.\n";
-       } else {
+       while (!POS.compareChange(change, enterChange)) { //NOT PYTHON
         std::cout << "Please try again.\n";
         std::cin >> enterChange;
-       } //this will hopefully compare the change, if it is wrong then must repeat until correct
+       } 
+       std::cout << "Transaction completed!\n";
 
         std::cout << "Clock out?\n";
         std::cin >> choice;
-
-        if (choice == 'Y' || choice == 'y') {
-            shift = false;
-        } 
-    }
-
 
 }

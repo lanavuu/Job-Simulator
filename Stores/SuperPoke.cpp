@@ -229,7 +229,7 @@ void pokePath() { //PATHWAY
 
         POS.setPayment(type);
         customerChange = bowl.customerChange();
-        double change = POS.change(bowlPrice, customerChange);
+        posChange = POS.change(bowlPrice, customerChange);
 
         std::cout << "Customer: I am paying with " << paymentString << "\nHere is my money: $"
         << customerChange << ".\n"; // got the payment

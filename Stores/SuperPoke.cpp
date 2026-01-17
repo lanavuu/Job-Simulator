@@ -233,7 +233,7 @@ void pokePath() { //PATHWAY
 
        //if change is correct, proceed, if not repeat until correct for now
 
-       while (!POS.compareChange(change, enterChange)) { //NOT PYTHON
+       while (!POS.compareChange(changeAmount, enterChange)) { //NOT PYTHON
         std::cout << "Please try again.\n";
         std::cin >> enterChange;
        } 

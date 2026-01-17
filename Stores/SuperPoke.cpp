@@ -200,13 +200,14 @@ void pokePath() { //PATHWAY
         std::string changeString;
         paymentType type;
         double enterChange;
+        double change;
 
         pokeBowl bowl; //create a bowl object
         bowl.buildBowl(); // randomly build new bowl
         std::cout << bowl.printOrder(); // print the order
         double order = bowl.calculateOrder(); // calculate the price of the bowl
 
-        int random = rand() % 100;
+        int random = rand() % 100;  // rng cash or card
         if (random < 80) {
             type = paymentType::Cash;
             paymentString = "Cash";
@@ -220,15 +221,21 @@ void pokePath() { //PATHWAY
 
         std::cout << "Customer: I am paying with " << paymentString << "Here is my money: " << changeString << ".\n"; // got the payment
 
-        std::cout << "REGISTER: You owe: " << POS.change(bowl.customerChange(), order) << "\n";
+        std::cout << "REGISTER: You owe: " << POS.change(bowl.customerChange(), order) << "\n"; //register function
+
         std::cout << "REGISTER: Enter the right amount of change to give back: \n";
         std::cin >> enterChange;
 
-        //rng payment function
-   
-        // create customer pay with cash or card
-        // if cash, have customer pay with extra = you need to calculate the change
-        // if card, enter amount in terminal
+
+
+       //if change is correct, proceed, if not repeat until correct for now
+
+       if (POS.compareChange(change, enterChange)) {
+        std::cout << "Transaction successful.\n";
+       } else {
+        std::cout << "Please try again.\n";
+        std::cin >> enterChange;
+       } //this will hopefully compare the change, if it is wrong then must repeat until correct
 
         std::cout << "Clock out?";
         std::cin >> choice;

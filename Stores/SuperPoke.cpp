@@ -163,7 +163,7 @@ std::string pokeBowl::printOrder() {
         }
        
 
-
+return price_;
 }
 
     void pokeBowl::buildBowl() { //random bowl

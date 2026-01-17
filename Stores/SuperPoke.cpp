@@ -127,8 +127,11 @@ std::string pokeBowl::printOrder() {
     // this is so incredibly ineffiencet i know, will return after i finish everything bc im lazy
 
 
-    return ("CUSTOMER RECIPT: Customer ordered a " + size_ + " bowl with " + base_ + ".\n For your toppings you chose " + toppings + ".\n For proteins you chose " +
-    proteins + " with sauces " + sauces + ".\n To top it off, you chose " + topOffs + ".\n"); // convert vector to string, print
+    return ("-------------------------------------------------\n"
+        "\nCUSTOMER RECIPT: Customer ordered a " + size_ + " bowl with " + base_ +
+        ".\nTOPPINGS: " + toppings + ".\nPROTEINS: " +
+    proteins + "\nSAUCES: " + sauces + ".\nTOP-OFFS: " + topOffs +
+    ".\n-------------------------------------------------\n"); // convert vector to string, print
 }
     void pokeBowl::setSize (std::string& size) {
         size_ = size;
@@ -223,21 +226,27 @@ void pokePath() { //PATHWAY
 
         POS.setPayment(type);
         changeAmount = bowl.customerChange();
+        double change = POS.change(bowl.customerChange(), order);
 
         std::cout << "Customer: I am paying with " << paymentString << "\nHere is my money: $" 
         << std::fixed << std::setprecision(2) << changeAmount << ".\n"; // got the payment
-        std::cout << "REGISTER: You owe: " << POS.change(bowl.customerChange(), order) << "\n"; //register function
-        std::cout << "REGISTER: Enter the right amount of change to give back: \n";
-        std::cin >> enterChange;
+        std::cout << "REGISTER: You owe: " << change << "\n"; //register function
+        double enterChange;
+       
 
 
        //if change is correct, proceed, if not repeat until correct for now
-
-       while (!POS.compareChange(bowl.customerChange(), enterChange)) { //NOT PYTHON
-        std::cout << "Please try again.\n";
+       double enterChange;
+       while (true) {
+        std::cout << "REGISTER: Enter change: \n";
         std::cin >> enterChange;
+            if (POS.compareChange(change, order)) {
+                std::cout << "REGISTER: Transaction successful!\n";
+                break;
+            } else {
+                std::cout << "REGISTER: Incorrect, please try again\n";
+            }
        } 
-       std::cout << "Transaction completed!\n";
 
     }
 

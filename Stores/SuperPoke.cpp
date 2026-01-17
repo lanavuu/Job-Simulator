@@ -4,6 +4,7 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <iomanip>
 
 
 #include <unordered_map>
@@ -126,8 +127,8 @@ std::string pokeBowl::printOrder() {
     // this is so incredibly ineffiencet i know, will return after i finish everything bc im lazy
 
 
-    return ("You ordered a " + size_ + " bowl with " + base_ + ". For your toppings you chose " + toppings + ". For proteins you chose " +
-    proteins + " with sauces " + sauces + ". To top it off, you chose " + topOffs + ".\n"); // convert vector to string, print
+    return ("CUSTOMER RECIPT: Customer ordered a " + size_ + " bowl with " + base_ + ".\n For your toppings you chose " + toppings + ".\n For proteins you chose " +
+    proteins + " with sauces " + sauces + ".\n To top it off, you chose " + topOffs + ".\n"); // convert vector to string, print
 }
     void pokeBowl::setSize (std::string& size) {
         size_ = size;
@@ -148,18 +149,18 @@ std::string pokeBowl::printOrder() {
 
         if (size_ == "Small") {
             price_ = 14;
-            std::cout << "Okay you ordered a small, that will be $14 please";
+            std::cout << "YOU: Okay you ordered a small, that will be $14 please\n";
             return price_;
         } else if (size_ == "Medium") {
             price_ = 17;
-            std::cout << "Okay you ordered a small, that will be $14 please";
+            std::cout << "YOU: Okay you ordered a small, that will be $14 please\n";
             return price_;
         } else if (size_ == "Large") {
             price_ = 20;
-            std::cout << "Okay you ordered a small, that will be $14 please";
+            std::cout << "YOU: Okay you ordered a small, that will be $14 please\n";
             return price_;
         } else {
-        std::cout << "Invalid order";
+        std::cout << "Invalid order\n";
         }
        
 
@@ -197,7 +198,7 @@ void pokePath() { //PATHWAY
 
     while (shift) {
         std::string paymentString;
-        std::string changeString;
+        double changeAmount;
         paymentType type;
         double enterChange;
         double change;
@@ -217,9 +218,10 @@ void pokePath() { //PATHWAY
         }
 
         POS.setPayment(type);
-        changeString = bowl.customerChange();
+        changeAmount = bowl.customerChange();
 
-        std::cout << "Customer: I am paying with " << paymentString << "Here is my money: " << changeString << ".\n"; // got the payment
+        std::cout << "Customer: I am paying with " << paymentString << "\nHere is my money: $" 
+        << std::fixed << std::setprecision(2) << changeAmount << ".\n"; // got the payment
 
         std::cout << "REGISTER: You owe: " << POS.change(bowl.customerChange(), order) << "\n"; //register function
 
@@ -237,7 +239,7 @@ void pokePath() { //PATHWAY
         std::cin >> enterChange;
        } //this will hopefully compare the change, if it is wrong then must repeat until correct
 
-        std::cout << "Clock out?";
+        std::cout << "Clock out?\n";
         std::cin >> choice;
 
         if (choice == 'Y' || choice == 'y') {

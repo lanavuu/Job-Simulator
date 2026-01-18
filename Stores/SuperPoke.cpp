@@ -155,10 +155,10 @@ std::string pokeBowl::printOrder() {
             std::cout << "YOU: Okay you ordered a small, that will be $14 please\n";
         } else if (size_ == "Medium") {
             price_ = 17;
-            std::cout << "YOU: Okay you ordered a small, that will be $14 please\n";
+            std::cout << "YOU: Okay you ordered a medium, that will be $17 please\n";
         } else if (size_ == "Large") {
             price_ = 20;
-            std::cout << "YOU: Okay you ordered a small, that will be $14 please\n";
+            std::cout << "YOU: Okay you ordered a large, that will be $20 please\n";
         } else {
         std::cout << "Invalid order\n";
         }

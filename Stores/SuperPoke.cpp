@@ -219,7 +219,7 @@ void pokePath() { //PATHWAY
         double bowlPrice = bowl.calculateOrder(); // calculate the price of the bowl
 
         int random = rand() % 100;  // rng cash or card
-        if (random < 80) {
+        if (random < 60) {
             type = paymentType::Cash;
             paymentString = "Cash";
             paymentPath = 1;
@@ -235,7 +235,7 @@ void pokePath() { //PATHWAY
         
         std::cout << "Customer: I am paying with " + paymentString + ".\n";
 
-       if (paymentPath = 1) {
+       if (paymentPath == 1) {
 
         while (!POS.compareChange(posChange, enterChange)) {
 
@@ -251,8 +251,8 @@ void pokePath() { //PATHWAY
                     std::cout << "REGISTER: Incorrect, please try again\n";
                 }
         }
-        
-        } else if (paymentPath = 2) {
+
+        } else if (paymentPath == 2) {
 
             while (!POS.compareCardInput(bowlPrice, inputCard)) {
                 std::cout << "Customer: Here is my card..\n";

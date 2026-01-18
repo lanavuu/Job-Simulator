@@ -38,3 +38,7 @@ bool registerSys::compareChange(double amountDue, double userGiven) {
 
 }
 
+bool registerSys::compareCardInput(double amountDue, double cardAmount) {
+    return amountDue == cardAmount;
+}
+

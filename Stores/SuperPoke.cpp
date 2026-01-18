@@ -210,9 +210,9 @@ void pokePath() { //PATHWAY
         paymentType type;
         double enterChange = 929393;
         double posChange = 0.0;
+        int paymentPath = 0;
+        double inputCard = 676767;
         
-        
-
         pokeBowl bowl; //create a bowl object
         bowl.buildBowl(); // randomly build new bowl
         std::cout << bowl.printOrder(); // print the order
@@ -222,35 +222,54 @@ void pokePath() { //PATHWAY
         if (random < 80) {
             type = paymentType::Cash;
             paymentString = "Cash";
+            paymentPath = 1;
         } else {
             type = paymentType::Card;
             paymentString = "Card";
+            paymentPath = 2;
         }
 
         POS.setPayment(type);
         customerChange = bowl.customerChange();
         posChange = POS.change(bowlPrice, customerChange);
-
-        std::cout << "Customer: I am paying with " << paymentString << "\nHere is my money: $"
-        << customerChange << ".\n"; // got the payment
-        std::cout << "REGISTER: You owe: " << posChange << "\n"; //register function
         
-       
+        std::cout << "Customer: I am paying with " + paymentString + ".\n";
 
+       if (paymentPath = 1) {
 
-       //if change is correct, proceed, if not repeat until correct for now
-       
-       while (!POS.compareChange(posChange, enterChange)) {
-        std::cout << "REGISTER: Enter change: \n";
-        std::cin >> enterChange;
-            if (POS.compareChange(posChange, enterChange)) {
-                std::cout << "REGISTER: Transaction successful!\n";
-                break;
-            } else {
-                std::cout << "REGISTER: Incorrect, please try again\n";
-            }
-       } 
+        while (!POS.compareChange(posChange, enterChange)) {
 
+            std::cout << "Customer: Here is my money: $" << customerChange << ".\n"; // got the payment
+            std::cout << "REGISTER: You owe: " << posChange << "\n"; //register function
+            std::cout << "REGISTER: Enter change: \n";
+            std::cin >> enterChange;
+
+                if (POS.compareChange(posChange, enterChange)) {
+                    std::cout << "REGISTER: Transaction successful!\n";
+                    break;
+                } else {
+                    std::cout << "REGISTER: Incorrect, please try again\n";
+                }
+        }
+        
+        } else if (paymentPath = 2) {
+
+            while (!POS.compareCardInput(bowlPrice, inputCard)) {
+                std::cout << "Customer: Here is my card..\n";
+                std::cout << "REGISTER: Enter the correct amount: $\n";
+                std::cin >> inputCard;
+
+                if (POS.compareCardInput(bowlPrice, inputCard)) {
+                    std::cout << "REGISTER: Transaction successful!\n";
+                    break;
+                } else {
+                    std::cout << "REGISTER:: Transaction unsuccessful, double check your input..\n";
+                }
+            
+
+        }
+
+    }
     std::cout << "CLOCK OUT?\n";
     std::cout << "Enter 'y' or 'n': \n ";
     std::cin >> choice;

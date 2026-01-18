@@ -25,10 +25,11 @@ class registerSys{
     public:
     registerSys();
 
-    double change(double order, double total);
+    double change(double orderCost, double customerMoney);
     void setPayment(paymentType type);
     paymentType getPaymentType() const;
     bool compareChange(double amountDue, double userGiven);
+    bool compareCardInput(double amountDue, double cardAmount);
    
 
 

@@ -153,20 +153,16 @@ std::string pokeBowl::printOrder() {
         if (size_ == "Small") {
             price_ = 14;
             std::cout << "YOU: Okay you ordered a small, that will be $14 please\n";
-            return price_;
         } else if (size_ == "Medium") {
             price_ = 17;
             std::cout << "YOU: Okay you ordered a small, that will be $14 please\n";
-            return price_;
         } else if (size_ == "Large") {
             price_ = 20;
             std::cout << "YOU: Okay you ordered a small, that will be $14 please\n";
-            return price_;
         } else {
         std::cout << "Invalid order\n";
         }
        
-
 return price_;
 }
 
@@ -234,11 +230,11 @@ void pokePath() { //PATHWAY
         posChange = POS.change(bowlPrice, customerChange);
         
         std::cout << "Customer: I am paying with " + paymentString + ".\n";
-
+        
        if (paymentPath == 1) {
 
         while (!POS.compareChange(posChange, enterChange)) {
-
+            
             std::cout << "Customer: Here is my money: $" << customerChange << ".\n"; // got the payment
             std::cout << "REGISTER: You owe: " << posChange << "\n"; //register function
             std::cout << "REGISTER: Enter change: \n";
@@ -255,8 +251,8 @@ void pokePath() { //PATHWAY
         } else if (paymentPath == 2) {
 
             while (!POS.compareCardInput(bowlPrice, inputCard)) {
-                std::cout << "Customer: Here is my card..\n";
-                std::cout << "REGISTER: Enter the correct amount: $\n";
+                std::cout << " Here is my card..\n";
+                std::cout << "REGISTER: Enter the correct amount: ";
                 std::cin >> inputCard;
 
                 if (POS.compareCardInput(bowlPrice, inputCard)) {

@@ -3,6 +3,19 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <cstdlib>
+
+
+void rickOrder::generateNPCOrder() {
+    // burger
+    
+    
+
+}
+
+void rickOrder::calculateOrder() {
+
+}
 
 rickMenu::rickMenu() {
     //structured as a whole order
@@ -20,6 +33,8 @@ rickMenu::rickMenu() {
     items["Mango-banana Smoothie"] = 4.67;
     items["Strawberry-banana Smoothie"] = 4.67;
     items["Rick-Flurry"] = 4.50;
+    items["The Rick-Double-Double Trouble"] = 9.67; // includes two Rick-Double burgers
+    items["Rick's Hungry Combo"] = 14.67; // includes one rick-double burger, two large fries, one 20pc fries, one soda, and one rick flurry
 }
 void rickPath() {
     std::unordered_map<std::string, double> rickMenu;

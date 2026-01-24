@@ -22,13 +22,17 @@ rickOrder::rickOrder() {
     extraAndDessert_.push_back("Rick-OreoFlurry");
     extraAndDessert_.push_back("Rick-CookieFlurry");
     extraAndDessert_.push_back("4 pc RickNuggets");
-    extraAndDessert_.push_back("Rick-OreoFlurry");
-    extraAndDessert_.push_back("Rick-OreoFlurry");
-    extraAndDessert_.push_back("Rick-OreoFlurry");
-
-
-
+    extraAndDessert_.push_back("10 pc RickNuggets");
+    extraAndDessert_.push_back("20pc RickNuggets");
+    extraAndDessert_.push_back("Small Fries");
+    extraAndDessert_.push_back("Medium Fries");
+    extraAndDessert_.push_back("Large Fries");
       
+}
+
+void rickOrder::generateNPCOrder() {
+    
+
 }
 
 rickMenu::rickMenu() {

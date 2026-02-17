@@ -2,6 +2,7 @@
 #define RICKRONALDS_HPP
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 
 void rickPath();
 
@@ -28,11 +29,16 @@ class rickOrder {
     double calculateOrderTotal();
     void printOrder();
     double customerChange();
+    void setPrice(double price);
+    
+
     //RNG ORDER
     
     
     private:
     rickMenu* menuPtr;
+
+    double price_;
 
     std::vector<std::string> npcOrder_;
     std::vector<std::string> burgers_;

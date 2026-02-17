@@ -75,9 +75,19 @@
     }
 
     double rickOrder::customerChange() {
+        // generates RNG customer change by allowing rng to overpay with the minimum of
+        // the order price + extra dollars + cents
         double change;
+        change = price_ + ((rand() % 10) + ((rand() % 100) / 100.0));
+
+        return change;
         
     }
+
+    void rickOrder::setPrice(double price) {
+        price = price_;
+    }
+
     rickOrder::~rickOrder() {
         delete menuPtr;
         menuPtr = nullptr;

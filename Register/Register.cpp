@@ -12,16 +12,20 @@ registerSys::registerSys()
 
 }
 
-paymentType registerSys::getPaymentType() const { //returning cash or card
+paymentType registerSys::getPaymentType() const { 
+    // function that helps randomize the payment type 
+
     return paymentType_;
 }
 
 void registerSys::setPayment(paymentType type) {
+    // function that helps set RNG payment type
+
     paymentType_ = type;
 }
 
 double registerSys::change(double orderCost, double customerMoney) {
-    // Takes the order cost and customer's money and outputs the change
+    // Takes the order cost and customer's money and outputs the change needed
    
     return (customerMoney - orderCost);
 
@@ -29,11 +33,16 @@ double registerSys::change(double orderCost, double customerMoney) {
 // TODO: Compare the change, if user input == rng input then continue
 // else repeat until user puts in the correct change
 bool registerSys::compareChange(double amountDue, double userGiven) {
+    // takes the due amount for the order and what the user gave to check if 
+    // user gave the right change
+
     return amountDue == userGiven;
 
 }
 
 bool registerSys::compareCardInput(double amountDue, double cardAmount) {
+    // checks if user input the correct due amount for the bowl with their card
+
     return amountDue == cardAmount;
 }
 

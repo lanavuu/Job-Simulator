@@ -230,6 +230,11 @@ void pokePath() { //PATHWAY
 
         while (!POS.compareChange(posChange, enterChange)) {
             posChange = POS.change(bowlPrice, customerChange);
+            std::cout << std::fixed << std::setprecision(2) 
+            << "\n***REGISTER: The bowl costs: $" << bowlPrice
+            << "***\n***REGISTER: Customer gave: $" << customerChange << "***\n***REGISTER: " << customerChange << " - "
+            << bowlPrice << " = $" << posChange << "***\n";
+   
             std::cout << "Customer: Here is my money: $" << customerChange << ".\n"; // got the payment
             std::cout << "REGISTER: You owe: " << posChange << "\n"; //register function
             std::cout << "REGISTER: Enter change: \n";

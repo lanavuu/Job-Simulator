@@ -21,12 +21,7 @@ void registerSys::setPayment(paymentType type) {
 }
 
 double registerSys::change(double orderCost, double customerMoney) {
- 
-    std::cout << std::fixed << std::setprecision(2) 
-    << "\nThe bowl costs: $" << orderCost
-    << "\nCustomer gave: $" << customerMoney << "\n" << customerMoney << " - "
-    << orderCost << " = $" <<
-    (customerMoney - orderCost) << "\n";
+    // Takes the order cost and customer's money and outputs the change
    
     return (customerMoney - orderCost);
 

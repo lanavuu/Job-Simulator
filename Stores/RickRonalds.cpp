@@ -125,19 +125,58 @@
         char choice = 'n';
         bool shift = true;
 
+
         while(shift) {
             double cost;
+            double customerChange;
+            std::string paymentString;
+            int paymentPath = 0;
+            paymentType type;
+            double POSchange;
+            bool compareChange;
+            bool compareCardInput;
+            double userChangeInput = 676767;
 
             rickOrder order;
             order.generateNPCOrder();
             order.printOrder();
             cost = order.calculateOrderTotal();
-            std::cout << "YOU: In total, that will cost $" << cost << ". \n"; 
+            customerChange = order.customerChange();
+            POSchange = POS.change(cost, customerChange);
             
 
+
+            std::cout << "YOU: In total, that will cost $" << cost << ". Will that be cash or card?\n";
+
+            
+            int random = rand() % 100;  // rng cash or card
+            if (random < 60) {
+                type = paymentType::Cash;
+                paymentString = "Cash";
+                paymentPath = 1;
+            } else {
+                type = paymentType::Card;
+                paymentString = "Card";
+                paymentPath = 2;
+            }
+            POS.setPayment(type);
+          
+
+            if (paymentPath == 1) {
+                std::cout << "CUSTOMER: Cash, here is my change: $" << customerChange << ".\n";
+                std::cout << "***REGISTER: calculating change... Give $" << POSchange
+                << ".\n***REGISTER: Enter change: ";
+                std::cin >> userChangeInput;
+                
+
+
+                
+            }
+
+
             
 
-
+        
 
         std::cout << "CLOCK OUT?\n";
         std::cout << "Enter 'y' or 'n': \n ";

@@ -135,9 +135,8 @@
             paymentType type;
             double enterChange = 676767;
             double POSchange = 0;
-            bool compareChange;
-            bool compareCardInput;
-            double userChangeInput = 676767;
+            double inputCard = 676767;
+
 
             rickOrder order;
             order.generateNPCOrder();
@@ -163,25 +162,34 @@
             }
             POS.setPayment(type);
           
-
+            POSchange = POS.change(cost, customerChange);
             if (paymentPath == 1) {
                 while(!POS.compareChange(POSchange, enterChange)) {
-                    POSchange = POS.change(cost, customerChange);
                     std::cout << std::fixed << std::setprecision(2) << "CUSTOMER: Cash, here is my change: $" << customerChange << ".\n";
-                    std::cout << "***REGISTER: calculating change... Give $" << POSchange
+                    std::cout << "***REGISTER: Calculating change... Give $" << POSchange
                     << ".\n***REGISTER: Enter change: ";
-                    std::cin >> userChangeInput;
+                    std::cin >> enterChange;
                         if (POS.compareChange(POSchange, enterChange)) {
                             std::cout << "***REGISTER: Transaction successful!\n";
                             break;
                         } else {
                             std::cout << "***REGISTER: Transaction failed, enter the correct input.\n";
                         }
-                
                 }
+            } else if (paymentPath == 2) {
+                while (!POS.compareCardInput(cost, inputCard)) {
+                    std::cout << "CUSTOMER: I will pay with card, here..\n"
+                    << "***REGISTER: Calculating change... Give $" << cost
+                    << ".\n***REGISTER: Enter change: ";
+                    std::cin >> inputCard;
+                        if (POS.compareCardInput(cost, inputCard)) {
+                            std::cout << "***rREGISTER: Transaction successful!\n";
+                            break;
+                        } else {
+                            std::cout << "***REGISTER: Transaction failed, enter the correct input.\n";
+                        }
 
-
-                
+                }
             }
 
 

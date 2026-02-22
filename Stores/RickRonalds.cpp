@@ -167,13 +167,16 @@
             if (paymentPath == 1) {
                 while(!POS.compareChange(POSchange, enterChange)) {
                     POSchange = POS.change(cost, customerChange);
-                    std::cout << std::fixed << std::setprecision(2)
-
-                
-                    std::cout << "CUSTOMER: Cash, here is my change: $" << customerChange << ".\n";
+                    std::cout << std::fixed << std::setprecision(2) << "CUSTOMER: Cash, here is my change: $" << customerChange << ".\n";
                     std::cout << "***REGISTER: calculating change... Give $" << POSchange
                     << ".\n***REGISTER: Enter change: ";
                     std::cin >> userChangeInput;
+                        if (POS.compareChange(POSchange, enterChange)) {
+                            std::cout << "***REGISTER: Transaction successful!\n";
+                            break;
+                        } else {
+                            std::cout << "***REGISTER: Transaction failed, enter the correct input.\n";
+                        }
                 
                 }
 

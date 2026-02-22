@@ -133,9 +133,9 @@
             std::string paymentString;
             int paymentPath = 0;
             paymentType type;
-            double enterChange = 676767;
+            double enterChange = 0;
             double POSchange = 0;
-            double inputCard = 676767;
+            double inputCard = 0;
 
 
             rickOrder order;
@@ -162,9 +162,9 @@
             }
             POS.setPayment(type);
           
-            POSchange = POS.change(cost, customerChange);
             if (paymentPath == 1) {
                 while(!POS.compareChange(POSchange, enterChange)) {
+                       POSchange = POS.change(cost, customerChange);
                     std::cout << std::fixed << std::setprecision(2) << "CUSTOMER: Cash, here is my change: $" << customerChange << ".\n";
                     std::cout << "***REGISTER: Calculating change... Give $" << POSchange
                     << ".\n***REGISTER: Enter change: ";
@@ -191,11 +191,6 @@
 
                 }
             }
-
-
-            
-
-        
 
         std::cout << "CLOCK OUT?\n";
         std::cout << "Enter 'y' or 'n': \n ";

@@ -200,7 +200,7 @@ void pokePath() { //PATHWAY
         double customerChange = 0.0;
         paymentType type;
         double enterChange = 929393;
-        double posChange = 0.0;
+        double POSchange = 0.0;
         int paymentPath = 0;
         double inputCard = 676767;
         
@@ -228,19 +228,19 @@ void pokePath() { //PATHWAY
         
        if (paymentPath == 1) {
 
-        while (!POS.compareChange(posChange, enterChange)) {
-            posChange = POS.change(bowlPrice, customerChange);
+        while (!POS.compareChange(POSchange, enterChange)) {
+            POSchange = POS.change(bowlPrice, customerChange);
             std::cout << std::fixed << std::setprecision(2) 
             << "\n***REGISTER: The bowl costs: $" << bowlPrice
             << "***\n***REGISTER: Customer gave: $" << customerChange << "***\n***REGISTER: " << customerChange << " - "
-            << bowlPrice << " = $" << posChange << "***\n";
+            << bowlPrice << " = $" << POSchange << "***\n";
    
             std::cout << "Customer: Here is my money: $" << customerChange << ".\n"; // got the payment
-            std::cout << "REGISTER: You owe: " << posChange << "\n"; //register function
+            std::cout << "REGISTER: You owe: " << POSchange << "\n"; //register function
             std::cout << "REGISTER: Enter change: \n";
             std::cin >> enterChange;
 
-                if (POS.compareChange(posChange, enterChange)) {
+                if (POS.compareChange(POSchange, enterChange)) {
                     std::cout << "REGISTER: Transaction successful!\n";
                     break;
                 } else {

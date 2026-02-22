@@ -4,6 +4,7 @@
 #include <vector>
 #include <unordered_map>
 #include <cstdlib>
+#include <iomanip>
 
     rickOrder::rickOrder() {
         menuPtr = new rickMenu();
@@ -132,7 +133,8 @@
             std::string paymentString;
             int paymentPath = 0;
             paymentType type;
-            double POSchange;
+            double enterChange = 676767;
+            double POSchange = 0;
             bool compareChange;
             bool compareCardInput;
             double userChangeInput = 676767;
@@ -163,11 +165,17 @@
           
 
             if (paymentPath == 1) {
-                std::cout << "CUSTOMER: Cash, here is my change: $" << customerChange << ".\n";
-                std::cout << "***REGISTER: calculating change... Give $" << POSchange
-                << ".\n***REGISTER: Enter change: ";
-                std::cin >> userChangeInput;
+                while(!POS.compareChange(POSchange, enterChange)) {
+                    POSchange = POS.change(cost, customerChange);
+                    std::cout << std::fixed << std::setprecision(2)
+
                 
+                    std::cout << "CUSTOMER: Cash, here is my change: $" << customerChange << ".\n";
+                    std::cout << "***REGISTER: calculating change... Give $" << POSchange
+                    << ".\n***REGISTER: Enter change: ";
+                    std::cin >> userChangeInput;
+                
+                }
 
 
                 

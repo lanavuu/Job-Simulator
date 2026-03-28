@@ -130,6 +130,7 @@
         while(shift) {
             double cost;
             double customerChange;
+            double customerMoney;
             std::string paymentString;
             int paymentPath = 0;
             paymentType type;
@@ -143,7 +144,8 @@
             order.printOrder();
             cost = order.calculateOrderTotal();
             customerChange = order.customerChange();
-            POSchange = POS.change(cost, customerChange);
+            POSchange = POS.change(customerMoney, cost);
+            customerMoney = cost - customerChange;
             
 
 
@@ -165,7 +167,7 @@
             if (paymentPath == 1) {
                 while(!POS.compareChange(POSchange, enterChange)) {
                        POSchange = POS.change(cost, customerChange);
-                    std::cout << std::fixed << std::setprecision(2) << "CUSTOMER: Cash, here is my change: $" << customerChange << ".\n";
+                    std::cout << std::fixed << std::setprecision(2) << "CUSTOMER: Cash, here is my change: $" << customerMoney << ".\n";
                     std::cout << "***REGISTER: Calculating change... Give $" << POSchange
                     << ".\n***REGISTER: Enter change: ";
                     std::cin >> enterChange;

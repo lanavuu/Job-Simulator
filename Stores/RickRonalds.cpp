@@ -179,7 +179,7 @@ void cashier(){
         std::cout << "Hello welcome to rickronalds what do you want?\n";
         std::cout << "CUSTOMER: give me a " << randomOrder.printOrder() << "\n";
         std::cout << "SYSTEM: This order costs: $" << randomOrder.calculateOrderTotal()<< "\n";
-        double price;
+    
         std::cout << "$" << randomOrder.calculateOrderTotal() << " please.\n";
         std::cout << "CUSTOMER: Here is $" << randomOrder.customerMoney() << "\n";
         while (true){
@@ -191,12 +191,29 @@ void cashier(){
                     throw IncorrectInput();
                 }
                 else{
+                    std::cout << "SYSTEM: You owe the customer: " << POS.change(randomOrder.customerMoney(), randomOrder.calculateOrderTotal()) << "\n";
                     break;
                 }
             }
             catch (IncorrectInput){
                 std::cout << "Error: double check your input, try again.\n";
         }
+        }
+        while (true){
+            try{
+            std::cout << "SYSTEM: Enter their change: ";
+            double change;
+            std::cin >> change;
+            if (!(POS.compareChange(POS.change(randomOrder.customerMoney(), randomOrder.calculateOrderTotal()), change))){
+                throw IncorrectInput();
+            }
+            else{
+                break;
+            }
+            }
+            catch(IncorrectInput){
+                std::cout << "Error: double check your input, try again.\n";
+            }
         }
     }
 

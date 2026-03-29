@@ -181,20 +181,21 @@ void cashier(){
         randomOrder.generateNPCOrder();
         std::cout << "Hello welcome to rickronalds what do you want?\n";
         std::cout << "CUSTOMER: give me a " << randomOrder.printOrder() << "\n";
-        std::cout << "SYSTEM: This order costs: $" << randomOrder.calculateOrderTotal()<< "\n";
-        randomOrder.setPrice(randomOrder.calculateOrderTotal());
-        std::cout << "$" << randomOrder.calculateOrderTotal() << " please.\n";
-        std::cout << "CUSTOMER: Here is $" << randomOrder.customerMoney() << "\n";
+        double price = randomOrder.calculateOrderTotal();
+        std::cout << "SYSTEM: This order costs: $" << price << "\n";
+        randomOrder.setPrice(price);
+        std::cout << "$" << price << " please.\n";
+        double customerMoney = randomOrder.customerMoney();
+        std::cout << "CUSTOMER: Here is $" << customerMoney << "\n";
         while (true){
             try {
                 std::cout << "\nSYSTEM: Enter the customers money: $";
-                double customersMoney;
-                std::cin >> customersMoney;
-                if (customersMoney != randomOrder.customerMoney()){
+                double inputCustomersMoney;
+                std::cin >> inputCustomersMoney;
+                if (inputCustomersMoney != customerMoney){
                     throw IncorrectInput();
                 }
                 else{
-                    std::cout << "SYSTEM: You owe the customer: " << POS.change(randomOrder.customerMoney(), randomOrder.calculateOrderTotal()) << "\n";
                     break;
                 }
             }
@@ -204,10 +205,12 @@ void cashier(){
         }
         while (true){
             try{
+            double change = POS.change(customerMoney, price);
+            std::cout << "SYSTEM: You owe the customer: " << change << "\n";
             std::cout << "SYSTEM: Enter their change: ";
-            double change;
-            std::cin >> change;
-            if (!(POS.compareChange(POS.change(randomOrder.customerMoney(), randomOrder.calculateOrderTotal()), change))){
+            double inputChange;
+            std::cin >> inputChange;
+            if (!(POS.compareChange(change, inputChange))){
                 throw IncorrectInput();
             }
             else{

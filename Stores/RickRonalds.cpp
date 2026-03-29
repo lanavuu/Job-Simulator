@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include <cstdlib>
 #include <iomanip>
+#include <cmath>
 
     rickOrder::rickOrder() {
         menuPtr = new rickMenu();
@@ -87,7 +88,7 @@
     }
 
     void rickOrder::setPrice(double price) {
-        price = price_;
+        price_ = price;
         
     }
 
@@ -192,7 +193,7 @@ void cashier(){
                 std::cout << "\nSYSTEM: Enter the customers money: $";
                 double inputCustomersMoney;
                 std::cin >> inputCustomersMoney;
-                if (inputCustomersMoney != customerMoney){
+                if (std::abs(inputCustomersMoney - customerMoney) > 0.001){
                     throw IncorrectInput();
                 }
                 else{

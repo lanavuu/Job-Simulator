@@ -120,7 +120,8 @@
         return items[itemName];
     }
 
-
+void startShift();
+void cashier();
     void rickPath() {
 
         while (true) {

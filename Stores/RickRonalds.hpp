@@ -27,8 +27,8 @@ class rickOrder {
 
     void generateNPCOrder();
     double calculateOrderTotal();
-    void printOrder();
-    double customerChange();
+    std::string printOrder();
+    double customerMoney();
     void setPrice(double price);
     
 
@@ -49,4 +49,5 @@ class rickOrder {
 };
 
 class OutOfRange{};
+class IncorrectInput{};
 #endif

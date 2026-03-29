@@ -182,7 +182,7 @@ void cashier(){
         std::cout << "Hello welcome to rickronalds what do you want?\n";
         std::cout << "CUSTOMER: give me a " << randomOrder.printOrder() << "\n";
         std::cout << "SYSTEM: This order costs: $" << randomOrder.calculateOrderTotal()<< "\n";
-    
+        randomOrder.setPrice(randomOrder.calculateOrderTotal());
         std::cout << "$" << randomOrder.calculateOrderTotal() << " please.\n";
         std::cout << "CUSTOMER: Here is $" << randomOrder.customerMoney() << "\n";
         while (true){

@@ -66,12 +66,14 @@
         return total;
     }
     std::string rickOrder::printOrder() {
+        std::string result = "";
         for (int item = 0; item < npcOrder_.size(); item++) {
-            std::cout << npcOrder_[item] + ", ";
+            result += npcOrder_[item] + ", ";
             if (item == (npcOrder_.size() - 1)) {
-                std::cout << "and " + npcOrder_[item] + ".\n";
+                result += "and " + npcOrder_[item] + ".\n";
             }
         }
+        return result;
     }
 
     double rickOrder::customerMoney() {

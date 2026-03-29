@@ -66,7 +66,6 @@
         return total;
     }
     void rickOrder::printOrder() {
-        std::cout << "YOU: You ordered: ";
         for (int item = 0; item < npcOrder_.size(); item++) {
             std::cout << npcOrder_[item] + ", ";
             if (item == (npcOrder_.size() - 1)) {
@@ -143,7 +142,7 @@
                 }
             }
             catch (OutOfRange){
-                std::cout << "Error: you entered a number other than 1 and 0.";
+                std::cout << "Error: you entered a number other than 1 and 0.\n";
             }
             
         }
@@ -168,10 +167,17 @@ void startShift(){
             }
         }
         catch (OutOfRange){
-            std::cout << "Error: you entered an invalid number";
+            std::cout << "Error: you entered an invalid number\n";
         }
     }
 }
 void cashier(){
-    
+    while (true){
+        rickOrder randomOrder;
+        randomOrder.generateNPCOrder();
+        std::cout << "Hello welcome to rickronalds what do you want?";
+        std::cout << "CUSTOMER: give me a " + randomOrder;
+        
+
+    }
 }

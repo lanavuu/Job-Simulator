@@ -151,4 +151,27 @@
 }
 void startShift(){
 
+    while (true){
+        int action;
+        try{
+            std::cout << "1. Cashier\n2. Cook(LOCKED)\n3. Janitor(LOCKED)\n4. Manager(LOCKED)\n5. Clock out\nEnter your position: ";
+            std::cin >> action;
+            if (action < 1 || action > 5){
+                throw OutOfRange();
+            }
+            else if (action == 1) {
+                cashier();
+                break;
+            }
+            if (action == 5) {
+                break;
+            }
+        }
+        catch (OutOfRange){
+            std::cout << "Error: you entered an invalid number";
+        }
+    }
+}
+void cashier(){
+    
 }

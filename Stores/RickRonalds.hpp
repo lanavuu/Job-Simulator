@@ -47,4 +47,6 @@ class rickOrder {
     std::vector<std::string> extraAndDessert_;
     
 };
+
+class OutOfRange{};
 #endif

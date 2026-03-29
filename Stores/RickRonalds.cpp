@@ -65,7 +65,7 @@
         }
         return total;
     }
-    void rickOrder::printOrder() {
+    std::string rickOrder::printOrder() {
         for (int item = 0; item < npcOrder_.size(); item++) {
             std::cout << npcOrder_[item] + ", ";
             if (item == (npcOrder_.size() - 1)) {
@@ -74,7 +74,7 @@
         }
     }
 
-    double rickOrder::customerChange() {
+    double rickOrder::customerMoney() {
         // generates RNG customer change by allowing rng to overpay with the minimum of
         // the order price + extra dollars + cents
         double change;
@@ -173,11 +173,31 @@ void startShift(){
 }
 void cashier(){
     while (true){
+        registerSys POS;
         rickOrder randomOrder;
         randomOrder.generateNPCOrder();
-        std::cout << "Hello welcome to rickronalds what do you want?";
-        std::cout << "CUSTOMER: give me a " + randomOrder;
-        
-
+        std::cout << "Hello welcome to rickronalds what do you want?\n";
+        std::cout << "CUSTOMER: give me a " << randomOrder.printOrder() << "\n";
+        std::cout << "SYSTEM: This order costs: $" << randomOrder.calculateOrderTotal()<< "\n";
+        double price;
+        std::cout << "$" << randomOrder.calculateOrderTotal() << " please.\n";
+        std::cout << "CUSTOMER: Here is $" << randomOrder.customerMoney() << "\n";
+        while (true){
+            try {
+                std::cout << "\nSYSTEM: Enter the customers money: $";
+                double customersMoney;
+                std::cin >> customersMoney;
+                if (customersMoney != randomOrder.customerMoney()){
+                    throw IncorrectInput();
+                }
+                else{
+                    break;
+                }
+            }
+            catch (IncorrectInput){
+                std::cout << "Error: double check your input, try again.\n";
+        }
+        }
     }
+
 }

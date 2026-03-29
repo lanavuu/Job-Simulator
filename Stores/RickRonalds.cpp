@@ -87,6 +87,7 @@
 
     void rickOrder::setPrice(double price) {
         price = price_;
+        
     }
 
     rickOrder::~rickOrder() {
@@ -122,94 +123,32 @@
 
 
     void rickPath() {
-        registerSys POS;
-        char choice = 'n';
-        bool shift = true;
 
-
-        while(shift) {
-            double cost;
-            double customerChange;
-            double customerMoney;
-            std::string paymentString;
-            int paymentPath = 0;
-            paymentType type;
-            double enterChange = 0;
-            double POSchange = 0;
-            double inputCard = 0;
-
-
-            rickOrder order;
-            order.generateNPCOrder();
-            order.printOrder();
-            cost = order.calculateOrderTotal();
-            customerChange = order.customerChange();
-            POSchange = POS.change(customerMoney, cost);
-            customerMoney = cost - customerChange;
-            
-
-
-            std::cout << "YOU: In total, that will cost $" << cost << ". Will that be cash or card?\n";
-
-            
-            int random = rand() % 100;  // rng cash or card
-            if (random < 60) {
-                type = paymentType::Cash;
-                paymentString = "Cash";
-                paymentPath = 1;
-            } else {
-                type = paymentType::Card;
-                paymentString = "Card";
-                paymentPath = 2;
-            }
-            POS.setPayment(type);
-          
-            if (paymentPath == 1) {
-                while(!POS.compareChange(POSchange, enterChange)) {
-                       POSchange = POS.change(cost, customerChange);
-                    std::cout << std::fixed << std::setprecision(2) << "CUSTOMER: Cash, here is my change: $" << customerMoney << ".\n";
-                    std::cout << "***REGISTER: Calculating change... Give $" << POSchange
-                    << ".\n***REGISTER: Enter change: ";
-                    std::cin >> enterChange;
-                        if (POS.compareChange(POSchange, enterChange)) {
-                            std::cout << "***REGISTER: Transaction successful!\n";
-                            break;
-                        } else {
-                            std::cout << "***REGISTER: Transaction failed, enter the correct input.\n";
-                        }
+        while (true) {
+            int choice = 99;
+            try {
+                std::cout << "Would you like to clock in?\nEnter 1 (yes) or 0 (no): ";
+                std::cin >> choice;
+                if (choice < 0 || choice > 1) {
+                    throw OutOfRange();
                 }
-            } else if (paymentPath == 2) {
-                while (!POS.compareCardInput(cost, inputCard)) {
-                    std::cout << "CUSTOMER: I will pay with card, here..\n"
-                    << "***REGISTER: Calculating change... Give $" << cost
-                    << ".\n***REGISTER: Enter change: ";
-                    std::cin >> inputCard;
-                        if (POS.compareCardInput(cost, inputCard)) {
-                            std::cout << "***rREGISTER: Transaction successful!\n";
-                            break;
-                        } else {
-                            std::cout << "***REGISTER: Transaction failed, enter the correct input.\n";
-                        }
+                else if (choice == 1) {
+                    startShift();
+                    break;
 
                 }
+                else if (choice == 0) {
+                    std::cout << "\nGoing home..";
+                    break;
+                }
             }
+            catch (OutOfRange){
+                std::cout << "Error: you entered a number other than 1 and 0.";
+            }
+            
+        }
 
-        std::cout << "CLOCK OUT?\n";
-        std::cout << "Enter 'y' or 'n': \n ";
-        std::cin >> choice;
-        choice = std::tolower(choice);
-        if (choice == 'y') {
-            std::cout << "Bye!\n";
-            shift = false;
+}
+void startShift(){
 
-        } else {
-            std::cout << "Keep working.\n";
-        } 
-    }
-    /*std::cout << "This is our menu: ";
-
-    for (auto i : rickMenu) {
-        std::cout <<i.first << " $" << i.second;
-    }
-*/
 }

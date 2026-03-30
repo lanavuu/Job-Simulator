@@ -1,5 +1,6 @@
 #include "RickRonalds.hpp"
 #include "../Register/Register.hpp"
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -170,6 +171,7 @@ void startShift(){
                 break;
             }
             if (action == 5) {
+                rickPath();
                 break;
             }
         }

@@ -182,23 +182,7 @@ void cashier(){
         registerSys POS;
         rickOrder randomOrder;
         int choice;
-        try{
-            std::cout << "Serve the next customer? [1] yes or [2] no: ";
-            std::cin >> choice;
-            if (choice < 1 || choice >2){
-                throw OutOfRange();
-            }
-            if (choice == 1){
-                break;
-            }
-            else if (choice == 2){
-                std::cout << "Returning to position choice..";
-                startShift();
-            }
-        }
-        catch(OutOfRange){
-            std::cout << "Error: you entered an invalid number\n";
-        }
+        
         randomOrder.generateNPCOrder();
         std::cout << "Hello welcome to rickronalds what do you want?\n";
         std::cout << "CUSTOMER: give me a " << randomOrder.printOrder() << "\n";
@@ -254,7 +238,26 @@ void cashier(){
                 throw IncorrectInput();
             }
             else{
-                break;
+                std::cout << "+10 social credit\n";
+                try{
+                    std::cout << "Serve the next customer? [1] yes or [2] no: ";
+                    std::cin >> choice;
+                    std::cout << "\n";
+                    if (choice < 1 || choice >2){
+                        throw OutOfRange();
+                    }
+                    if (choice == 1){
+                        break;
+                    }
+                    else if (choice == 2){
+                        std::cout << "Returning to position choice..\n";
+                        startShift();
+                    }
+                }
+                catch(OutOfRange){
+                    std::cout << "Error: you entered an invalid number\n";
+                }
+            
             }
             }
             catch(IncorrectInput){

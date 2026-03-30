@@ -182,15 +182,17 @@ void cashier(){
         randomOrder.generateNPCOrder();
         std::cout << "Hello welcome to rickronalds what do you want?\n";
         std::cout << "CUSTOMER: give me a " << randomOrder.printOrder() << "\n";
-        double price = POS.toCents(randomOrder.calculateOrderTotal());
+        int price = POS.toCents(randomOrder.calculateOrderTotal());
         std::cout << "SYSTEM: This order costs: ";
         POS.printMoney(price);
         std::cout << "\n";
 
         randomOrder.setPrice(price);
-        std::cout << "$" << price << " please.\n";
-        double customerMoney = POS.toCents(randomOrder.customerMoney());
-        std::cout << "CUSTOMER: Here is $";
+        POS.printMoney(price);
+        std::cout << " please.\n";
+
+        int customerMoney = POS.toCents(randomOrder.customerMoney());
+        std::cout << "CUSTOMER: Here is ";
         POS.printMoney(customerMoney);
         std::cout << "\n";
         while (true){
@@ -198,7 +200,10 @@ void cashier(){
                 std::cout << "\nSYSTEM: Enter the customers money: $";
                 double inputCustomersMoney;
                 std::cin >> inputCustomersMoney;
-                if (std::abs(inputCustomersMoney - customerMoney) > 0.001){
+
+                int inputCustomersMoneyCents = POS.toCents(inputCustomersMoney);
+
+                if (inputCustomersMoneyCents != customerMoney){
                     throw IncorrectInput();
                 }
                 else{
@@ -211,12 +216,18 @@ void cashier(){
         }
         while (true){
             try{
-            double change = POS.change(customerMoney, price);
-            std::cout << "SYSTEM: You owe the customer: " << change << "\n";
+            int change = POS.change(customerMoney, price);
+            std::cout << "SYSTEM: You owe the customer: ";
+            POS.printMoney(change);
+            std::cout << "\n";
+
             std::cout << "SYSTEM: Enter their change: ";
             double inputChange;
             std::cin >> inputChange;
-            if (!(POS.compareChange(change, inputChange))){
+
+            int inputChangeCents = POS.toCents(inputChange);
+
+            if (!(POS.compareChange(change, inputChangeCents))){
                 throw IncorrectInput();
             }
             else{

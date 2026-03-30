@@ -241,6 +241,7 @@ void cashier(){
             else{
                 std::cout << "+10 social credit\n";
                 endingChoice();
+                break;
             
             }
             }

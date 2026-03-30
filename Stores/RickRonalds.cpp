@@ -182,12 +182,17 @@ void cashier(){
         randomOrder.generateNPCOrder();
         std::cout << "Hello welcome to rickronalds what do you want?\n";
         std::cout << "CUSTOMER: give me a " << randomOrder.printOrder() << "\n";
-        double price = randomOrder.calculateOrderTotal();
-        std::cout << "SYSTEM: This order costs: $" << price << "\n";
+        double price = POS.toCents(randomOrder.calculateOrderTotal());
+        std::cout << "SYSTEM: This order costs: ";
+        POS.printMoney(price);
+        std::cout << "\n";
+
         randomOrder.setPrice(price);
         std::cout << "$" << price << " please.\n";
-        double customerMoney = randomOrder.customerMoney();
-        std::cout << "CUSTOMER: Here is $" << customerMoney << "\n";
+        double customerMoney = POS.toCents(randomOrder.customerMoney());
+        std::cout << "CUSTOMER: Here is $";
+        POS.printMoney(customerMoney);
+        std::cout << "\n";
         while (true){
             try {
                 std::cout << "\nSYSTEM: Enter the customers money: $";

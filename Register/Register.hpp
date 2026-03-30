@@ -31,7 +31,8 @@ class registerSys{
     bool compareChange(int amountDue, int userGiven);
     bool compareCardInput(int amountDue, int cardAmount);
    
-    int toCents(double amount);
+    int toCents(double amount) const;
+    void printMoney(int cents);
 
 
 

@@ -49,7 +49,7 @@ bool registerSys::compareCardInput(int amountDue, int cardAmount) {
 
 int registerSys::toCents(double amount) const {
     //round the amount to be careful with storing values
-    return static_cast<int>(std::round(amount));
+    return static_cast<int>(std::round(amount * 100));
 }
 
 void registerSys::printMoney(int cents){

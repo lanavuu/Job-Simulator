@@ -184,12 +184,15 @@ void cashier(){
         randomOrder.generateNPCOrder();
         std::cout << "Hello welcome to rickronalds what do you want?\n";
         std::cout << "CUSTOMER: give me a " << randomOrder.printOrder() << "\n";
-        int price = POS.toCents(randomOrder.calculateOrderTotal());
+
+        double priceDollars = randomOrder.calculateOrderTotal();
+        randomOrder.setPrice(priceDollars);
+        int price = POS.toCents(priceDollars);
+
         std::cout << "SYSTEM: This order costs: ";
         POS.printMoney(price);
         std::cout << "\n";
 
-        randomOrder.setPrice(price);
         POS.printMoney(price);
         std::cout << " please.\n";
 
@@ -218,7 +221,7 @@ void cashier(){
         }
         while (true){
             try{
-            int change = POS.change(customerMoney, price);
+            int change = POS.change(price, customerMoney);
             std::cout << "SYSTEM: You owe the customer: ";
             POS.printMoney(change);
             std::cout << "\n";

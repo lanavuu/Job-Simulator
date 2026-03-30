@@ -13,7 +13,7 @@
         burgers_.push_back("RickCheese Burger");
         burgers_.push_back("RickPlain Burger");
         burgers_.push_back("Rick-Double");
-        burgers_.push_back("Swordfish burger");
+        burgers_.push_back("Swordfish Burger");
 
         fries_.push_back("Small Fries");
         fries_.push_back("Medium Fries");
@@ -68,10 +68,12 @@
     }
     std::string rickOrder::printOrder() {
         std::string result = "";
-        for (int item = 0; item < npcOrder_.size(); item++) {
-            result += npcOrder_[item] + ", ";
-            if (item == (npcOrder_.size() - 1)) {
-                result += "and " + npcOrder_[item] + ".\n";
+        for (int item = 0; item < npcOrder_.size(); item++){
+            if(item == npcOrder_.size() -1){
+                result += "and " + npcOrder_[item] + '.';
+            }
+            else{
+                result += npcOrder_[item] + ", ";
             }
         }
         return result;

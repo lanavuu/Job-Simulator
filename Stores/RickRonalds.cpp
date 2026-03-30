@@ -134,7 +134,7 @@ void endingChoice();
         while (true) {
             int choice = 99;
             try {
-                std::cout << "Would you like to clock in?\nEnter 1 (yes) or 0 (no): ";
+                std::cout << "Would you like to clock in?\nEnter [1] yes or [0] no: ";
                 std::cin >> choice;
                 if (choice < 0 || choice > 1) {
                     throw OutOfRange();

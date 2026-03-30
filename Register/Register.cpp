@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cmath>
 
 registerSys::registerSys() 
 : penny_(1), nickel_(5), dime_(10), quarter_(25), paymentType_(paymentType::Cash)
@@ -24,7 +25,7 @@ void registerSys::setPayment(paymentType type) {
     paymentType_ = type;
 }
 
-double registerSys::change(double orderCost, double customerMoney) {
+int registerSys::change(int orderCost, int customerMoney) {
     // Takes the order cost and customer's money and outputs the change needed
    
     return (customerMoney - orderCost);
@@ -32,7 +33,7 @@ double registerSys::change(double orderCost, double customerMoney) {
 }
 // TODO: Compare the change, if user input == rng input then continue
 // else repeat until user puts in the correct change
-bool registerSys::compareChange(double amountDue, double userGiven) {
+bool registerSys::compareChange(int amountDue, int userGiven) {
     // takes the due amount for the order and what the user gave to check if 
     // user gave the right change
 
@@ -40,9 +41,13 @@ bool registerSys::compareChange(double amountDue, double userGiven) {
 
 }
 
-bool registerSys::compareCardInput(double amountDue, double cardAmount) {
+bool registerSys::compareCardInput(int amountDue, int cardAmount) {
     // checks if user input the correct due amount for the bowl with their card
 
     return amountDue == cardAmount;
 }
 
+int toCents(double amount){
+    //round the amount to be careful with storing values
+    return static_cast<int>(std::round(amount));
+}

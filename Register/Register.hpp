@@ -25,12 +25,14 @@ class registerSys{
     public:
     registerSys();
 
-    double change(double orderCost, double customerMoney);
+    int change(int orderCost, int customerMoney);
     void setPayment(paymentType type);
     paymentType getPaymentType() const;
-    bool compareChange(double amountDue, double userGiven);
-    bool compareCardInput(double amountDue, double cardAmount);
+    bool compareChange(int amountDue, int userGiven);
+    bool compareCardInput(int amountDue, int cardAmount);
    
+    int toCents(double amount);
+
 
 
 
@@ -40,6 +42,9 @@ class registerSys{
     const int nickel_;
     const int dime_;
     const int quarter_;
+    const int dollar_ = 100;
+    const int fiveDollar_ = 500;
+    const int tenDollar_ = 1000;
     paymentType paymentType_; // custom type paymentType, only holding values from enum class paymentType
 
 

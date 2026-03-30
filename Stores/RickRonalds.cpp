@@ -189,11 +189,11 @@ void cashier(){
                 throw OutOfRange();
             }
             if (choice == 1){
-                continue;
+                break;
             }
             else if (choice == 2){
                 std::cout << "Returning to position choice..";
-                break;
+                startShift();
             }
         }
         catch(OutOfRange){

@@ -63,9 +63,11 @@ int registerSys::collectMoney(int amountDue){
     int choice;
     while(current != amountDue){
         try{
-            std::cout << "SYSTEM: amount due = " << amountDue;
-            std::cout << "\nSYSTEM: current = " << current << "\n";
-            std::cout << "SYSTEM: Please enter the correct amount of change:\n1. Add $10.00\n2. Add $5.00\n3. Add $1.00\n4. Add $0.25\n5. Add $0.10\n6. Add $0.05\n7. Add $0.01\n";
+            std::cout << "\nSYSTEM: amount due = ";
+            printMoney(amountDue);
+            std::cout << "\nSYSTEM: current = ";
+            printMoney(current);
+            std::cout << "\nSYSTEM: Please enter the correct amount of change:\n1. Add $10.00\n2. Add $5.00\n3. Add $1.00\n4. Add $0.25\n5. Add $0.10\n6. Add $0.05\n7. Add $0.01\n";
             std::cin >> choice;
             if (choice < 1 || choice > 7) {
                 throw OutOfRange();
@@ -90,6 +92,11 @@ int registerSys::collectMoney(int amountDue){
             }
             else if(choice==7){
                 current+=1;
+            }
+            else if(current > amountDue){
+                std::cout << "Error: Too much";
+                
+
             }
         }
         catch (const OutOfRange){

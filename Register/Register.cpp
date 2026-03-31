@@ -80,7 +80,16 @@ int registerSys::collectMoney(int amountDue){
                 current += 100;
             }
             else if (choice ==4){
-                current+=
+                current+=25;
+            }
+            else if (choice == 5){
+                current+=10;
+            }
+            else if(choice==6){
+                current+=5;
+            }
+            else if(choice==7){
+                current+=1;
             }
         }
         catch (const OutOfRange){

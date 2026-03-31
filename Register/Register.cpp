@@ -65,11 +65,26 @@ int registerSys::collectMoney(int amountDue){
         try{
             std::cout << "SYSTEM: amount due = " << amountDue;
             std::cout << "\nSYSTEM: current = " << current << "\n";
-            std::cout << "SYSTEM: Please enter the correct amount of change:\n1. Add $10.00\n2. Add $5.00\n3. Add $1.00\n4. Add $0.50\n5. Add $0.25\n6. Add $0.15\n7. Add $0.10\n8. Add $0.05\n9. Add $0.01\n";
+            std::cout << "SYSTEM: Please enter the correct amount of change:\n1. Add $10.00\n2. Add $5.00\n3. Add $1.00\n4. Add $0.25\n5. Add $0.10\n6. Add $0.05\n7. Add $0.01\n";
             std::cin >> choice;
-            if (choice < 1 || choice > 9) {
-                throw  
+            if (choice < 1 || choice > 7) {
+                throw OutOfRange();
             }
+            else if (choice == 1){
+                current += 1000;
+            }
+            else if (choice == 2){
+                current += 500;
+            }
+            else if (choice == 3){
+                current += 100;
+            }
+            else if (choice ==4){
+                current+=
+            }
+        }
+        catch (const OutOfRange){
+            std::cout << "Error: Invalid input, enter 1-9.";
         }
     }
 }

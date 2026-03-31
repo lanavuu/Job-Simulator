@@ -56,3 +56,7 @@ void registerSys::printMoney(int cents){
     //to print it like a double
     std::cout << "$" << std::fixed << std::setprecision(2) << cents / 100.0;
 }
+
+int registerSys::collectMoney(int amountDue){
+    
+}

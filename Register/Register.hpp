@@ -33,6 +33,7 @@ class registerSys{
    
     int toCents(double amount) const;
     void printMoney(int cents);
+    int collectMoney(int amountDue);
 
 
 

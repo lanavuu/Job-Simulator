@@ -1,6 +1,7 @@
 #include "Stores/OutAndIn.hpp"
 #include "Stores/RickRonalds.hpp"
 #include "Stores/SuperPoke.hpp"
+#include "Exceptions.hpp"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>

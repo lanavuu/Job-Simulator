@@ -1,5 +1,6 @@
 #include "RickRonalds.hpp"
 #include "../Register/Register.hpp"
+#include "../Exceptions.hpp"
 
 #include <iostream>
 #include <vector>

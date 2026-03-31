@@ -48,6 +48,5 @@ class rickOrder {
     
 };
 
-class OutOfRange{};
-class IncorrectInput{};
+
 #endif

@@ -1,5 +1,6 @@
 #include "Register.hpp"
 #include "../Stores/SuperPoke.hpp"
+#include "../Exceptions.hpp"
 
 #include <iostream>
 #include <iomanip>
@@ -67,7 +68,7 @@ int registerSys::collectMoney(int amountDue){
             std::cout << "SYSTEM: Please enter the correct amount of change:\n1. Add $10.00\n2. Add $5.00\n3. Add $1.00\n4. Add $0.50\n5. Add $0.25\n6. Add $0.15\n7. Add $0.10\n8. Add $0.05\n9. Add $0.01\n";
             std::cin >> choice;
             if (choice < 1 || choice > 9) {
-                throw git 
+                throw  
             }
         }
     }

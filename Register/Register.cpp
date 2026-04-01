@@ -93,7 +93,12 @@ int registerSys::collectMoney(int amountDue){
             else if(choice==7){
                 current+=1;
             }
-            else if(current > amountDue){
+            }
+            catch (const OutOfRange&){
+                std::cout << "Error: Invalid input, enter 1-7.";
+        }
+        }
+        if(current > amountDue){
                 std::cout << "Error: Too much";
                 if (choice == 1){
                 current -= 1000;
@@ -116,11 +121,6 @@ int registerSys::collectMoney(int amountDue){
                 else if(choice==7){
                     current-=1;
                 }
-
-            }
-        }
-        catch (const OutOfRange){
-            std::cout << "Error: Invalid input, enter 1-9.";
-        }
     }
+    return current;
 }

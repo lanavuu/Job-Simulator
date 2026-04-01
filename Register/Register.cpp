@@ -95,7 +95,27 @@ int registerSys::collectMoney(int amountDue){
             }
             else if(current > amountDue){
                 std::cout << "Error: Too much";
-                
+                if (choice == 1){
+                current -= 1000;
+                }
+                else if (choice == 2){
+                    current -= 500;
+                }
+                else if (choice == 3){
+                    current -= 100;
+                }
+                else if (choice ==4){
+                    current -=25;
+                }
+                else if (choice == 5){
+                    current -=10;
+                }
+                else if(choice==6){
+                    current-=5;
+                }
+                else if(choice==7){
+                    current-=1;
+                }
 
             }
         }

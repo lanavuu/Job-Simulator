@@ -2,6 +2,7 @@
 #include "../Register/Register.hpp"
 #include "../Exceptions.hpp"
 
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -130,6 +131,7 @@
 void startShift();
 void cashier();
 void endingChoice();
+
     void rickPath() {
 
         while (true) {
@@ -142,12 +144,12 @@ void endingChoice();
                 }
                 else if (choice == 1) {
                     startShift();
-                    break;
 
                 }
                 else if (choice == 0) {
                     std::cout << "\nGoing home..";
-                    break;
+                    return; //issue here
+                    
                 }
             }
             catch (OutOfRange){
@@ -173,7 +175,7 @@ void startShift(){
             }
             if (action == 5) {
                 rickPath();
-                break;
+                return;
             }
         }
         catch (OutOfRange){
@@ -188,7 +190,7 @@ void cashier(){
         int choice;
 
         randomOrder.generateNPCOrder();
-        std::cout << "Hello welcome to rickronalds what do you want?\n";
+        std::cout << "\nHello welcome to rickronalds what do you want?\n";
         std::cout << "CUSTOMER: give me a " << randomOrder.printOrder() << "\n";
 
         double priceDollars = randomOrder.calculateOrderTotal();
@@ -244,7 +246,7 @@ void cashier(){
             else{
                 std::cout << "+10 social credit\n";
                 endingChoice();
-                break;
+                return;
             
             }
             }
@@ -267,13 +269,12 @@ void endingChoice() {
                 throw OutOfRange();
             }
             if (choice == 1){
-                cashier();
-                break;
+                return;
             }
             else if (choice == 2){
                 std::cout << "Returning to position choice..\n";
                 startShift();
-                break;
+                return;
             }
         }
         catch(OutOfRange){

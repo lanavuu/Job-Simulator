@@ -185,9 +185,11 @@ void startShift(){
         }
     }
 }
-void cashier(){
+void cashier()
+{
     bool state = true;
-    while (state){
+    while (state)
+    {
         registerSys POS;
         rickOrder randomOrder;
         int choice;
@@ -211,8 +213,10 @@ void cashier(){
         std::cout << "CUSTOMER: Here is ";
         POS.printMoney(customerMoney);
         std::cout << "\n";
-        while (true){
-            try {
+        while (true)
+        {
+            try
+            {
                 std::cout << "\nSYSTEM: Enter the customers money: $";
                 double inputCustomersMoney;
                 std::cin >> inputCustomersMoney;
@@ -226,12 +230,16 @@ void cashier(){
                     break;
                 }
             }
-            catch (IncorrectInput){
+            catch (IncorrectInput)
+            {
                 std::cout << "Error: double check your input, try again.\n";
+            }
         }
-        }
-        while (true){
-            try{
+
+        while (true)
+        {
+            try
+            {
             int change = POS.change(price, customerMoney);
             std::cout << "SYSTEM: You owe the customer: ";
             POS.printMoney(change);
@@ -243,10 +251,12 @@ void cashier(){
 
             int inputChangeCents = POS.toCents(inputChange);
 
-            if (!(POS.compareChange(change, inputChangeCents))){
+            if (!(POS.compareChange(change, inputChangeCents)))
+            {
                 throw IncorrectInput();
             }
-            else{
+            else
+            {
                 int choice = 2;
                 std::cout << "+10 social credit\n[1] Return to Position Center\n[0] Continue to next Customer\nEnter: ";
                 std::cin >> choice;
@@ -262,7 +272,8 @@ void cashier(){
             
             }
             }
-            catch(IncorrectInput){
+            catch(IncorrectInput)
+            {
                 std::cout << "Error: double check your input, try again.\n";
             }
         }

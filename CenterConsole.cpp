@@ -6,9 +6,11 @@
 #include <cstdlib>
 #include <ctime>
 
-int main(){
+int main()
+{
 
-    while (true){
+    while (true)
+    {
 
     std::cout << "Hey kid. You've got no money, no talent, no potential, and your parents hate you.\n";
     std::cout << "Imma take you in, but if you don't get no job then you're out of here.\n";
@@ -22,13 +24,17 @@ int main(){
     std::cout << "Enter number: ";
     std::cin >> choice;
 
-    if (choice == 1) {
+    if (choice == 1)
+    {
         rickPath();
-    } else if (choice == 2) {
+    } else if (choice == 2)
+    {
         pokePath();
-    } else if (choice == 3){
+    } else if (choice == 3)
+    {
         break;
-    } else {
+    } else
+    {
         std::cout << "Invalid, choose either 1-3.\n"; // back
     }
 

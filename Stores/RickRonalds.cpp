@@ -128,29 +128,32 @@
         return items[itemName];
     }
 
+
 void startShift();
 void cashier();
-void endingChoice();
 
-    void rickPath() {
+    void rickPath()
+    {
 
-        while (true) {
+        while (true)
+        {
             int choice = 99;
-            try {
-                std::cout << "Would you like to clock in?\nEnter [1] yes or [0] no: ";
+            try 
+            {
+                std::cout << "Would you like to clock in?\n[1] Yes\n[0] No\nEnter: ";
                 std::cin >> choice;
-                if (choice < 0 || choice > 1) {
+                if (choice < 0 || choice > 1)
+                {
                     throw OutOfRange();
                 }
-                else if (choice == 1) {
+                else if (choice == 1)
+                {
                     startShift();
-                    return;
 
                 }
                 else if (choice == 0) {
                     std::cout << "\nGoing home..";
-                    return; //issue here
-                    
+                    return;
                 }
             }
             catch (OutOfRange){
@@ -172,10 +175,8 @@ void startShift(){
             }
             else if (action == 1) {
                 cashier();
-                return;
             }
             if (action == 5) {
-                rickPath();
                 return;
             }
         }
@@ -185,7 +186,8 @@ void startShift(){
     }
 }
 void cashier(){
-    while (true){
+    bool state = true;
+    while (state){
         registerSys POS;
         rickOrder randomOrder;
         int choice;
@@ -245,9 +247,17 @@ void cashier(){
                 throw IncorrectInput();
             }
             else{
-                std::cout << "+10 social credit\n";
-                endingChoice();
-                return;
+                int choice = 2;
+                std::cout << "+10 social credit\n[1] Return to Position Center\n[0] Continue to next Customer\nEnter: ";
+                std::cin >> choice;
+                if (choice == 1)
+                {
+                    state == false;
+                }
+                if (choice == 0)
+                {
+                    break;
+                }
             
             }
             }
@@ -257,29 +267,4 @@ void cashier(){
         }
     }
 
-}
-
-void endingChoice() {
-    while (true){
-        try{
-            int choice;
-            std::cout << "Serve the next customer? [1] yes or [2] no: ";
-            std::cin >> choice;
-            std::cout << "\n";
-            if (choice < 1 || choice >2){
-                throw OutOfRange();
-            }
-            if (choice == 1){
-                return;
-            }
-            else if (choice == 2){
-                std::cout << "Returning to position choice..\n";
-                startShift();
-                return;
-            }
-        }
-        catch(OutOfRange){
-        std::cout << "Error: you entered an invalid number\n";
-        }
-    }
 }

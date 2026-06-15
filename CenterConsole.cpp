@@ -6,8 +6,8 @@
 #include <cstdlib>
 #include <ctime>
 
-int main() {
-    srand(time(nullptr)); //rand seed ONCE in main
+int main(){
+
     while (true){
 
     std::cout << "Hey kid. You've got no money, no talent, no potential, and your parents hate you.\n";

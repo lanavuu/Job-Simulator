@@ -4,6 +4,7 @@
 #include <vector>
 #include <unordered_map>
 
+
 void rickPath();
 
 class rickMenu {

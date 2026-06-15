@@ -144,6 +144,7 @@ void endingChoice();
                 }
                 else if (choice == 1) {
                     startShift();
+                    return;
 
                 }
                 else if (choice == 0) {
@@ -171,7 +172,7 @@ void startShift(){
             }
             else if (action == 1) {
                 cashier();
-                break;
+                return;
             }
             if (action == 5) {
                 rickPath();

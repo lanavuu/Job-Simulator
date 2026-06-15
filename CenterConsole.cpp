@@ -19,7 +19,7 @@ int main(){
     std::cout << "1. RickRonalds, $20/hr\n";
     std::cout << "2. Super-Poke, $16.50/hr\n";
     std::cout << "3. Quit\n";
-    std::cout << "Enter number: \n";
+    std::cout << "Enter number: ";
     std::cin >> choice;
 
     if (choice == 1) {
@@ -31,6 +31,7 @@ int main(){
     } else {
         std::cout << "Invalid, choose either 1-3.\n"; // back
     }
+
+    }
     return 0;
-}
 }

@@ -252,7 +252,8 @@ void cashier(){
                 std::cin >> choice;
                 if (choice == 1)
                 {
-                    state == false;
+                    state = false;
+                    break;
                 }
                 if (choice == 0)
                 {
